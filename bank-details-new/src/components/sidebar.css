@@ -1,0 +1,8 @@
+.hoverEffect:hover {
+    color: #2e8362;
+}
+
+.active {
+    background-color: #E4F0EB;
+    color: #2e8362;
+}
