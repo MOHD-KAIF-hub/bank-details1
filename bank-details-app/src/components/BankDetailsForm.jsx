@@ -13,7 +13,7 @@ function BankDetailsForm() {
         relationshipWithAccountHolder: '',
         consent: false,
     });
-
+      const [val,setval]=useState(true);
     const [formErrors, setFormErrors] = useState({});
 
     const handleInputChange = (e) => {
@@ -40,7 +40,8 @@ function BankDetailsForm() {
         } else {
             // Submit the form data to the server or perform necessary actions
             console.log('Form data submitted:', formData);
-            setFormErrors({});
+            setval(false);
+            // setFormErrors({});
         }
     };
 
@@ -107,11 +108,12 @@ function BankDetailsForm() {
                     checked={formData.consent}
                     onChange={handleCheckboxChange}
                     error={formErrors.consent}
+                    status={val}
                 />
 
                 <div className="flex-shrink-0 flex items-center justify-end">
 
-                    <button
+                   { val&&<button
 
                         id="SaveButtonRoot"
                         className="flex flex-col w-16 items-start rounded-[50px]"
@@ -122,6 +124,7 @@ function BankDetailsForm() {
                             </div>
                         </div>
                     </button>
+                   }
 
                 </div>
             </form>
