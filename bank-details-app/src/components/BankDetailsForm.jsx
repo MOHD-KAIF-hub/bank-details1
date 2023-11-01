@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FormInput from './common/FormInput';
 import ConsentCheckbox from './common/ConsentCheckbox';
+import './BankDetailsForm.css';
 
 function BankDetailsForm() {
     const [formData, setFormData] = useState({
@@ -33,20 +34,23 @@ function BankDetailsForm() {
         const errors = {};
         if (!formData.accountHolderName) errors.accountHolderName = 'Account holder name is required';
         if (!formData.accountNumber) errors.accountNumber = 'Account number is required';
-        if (!formData.consent) errors.consent = 'You must agree to the terms';
+       if(!formData.ifscCode) errors.ifscCode='IFSC Code is required';
+        if (!formData.consent) errors.consent = 'You must agree to the terms'; 
 
-        if (Object.keys(errors).length > 0) {
+        if (Object.keys(errors).length >0) {
             setFormErrors(errors);
-        } else {
+        } 
+        else {
             // Submit the form data to the server or perform necessary actions
             console.log('Form data submitted:', formData);
             setval(false);
+            setFormErrors(errors);
             // setFormErrors({});
         }
     };
 
     return (
-        <div className="shadow-[0px_0px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row justify-center pt-5 gap-16 items-start mx-3 rounded">
+        <div className="Form_container">
             <form className='pt-[16px] px-[20px] md:pt-[32px] md:px-[40px]' onSubmit={handleSubmit}>
                 <FormInput
                     label="ACCOUNT HOLDER NAME"
@@ -54,6 +58,7 @@ function BankDetailsForm() {
                     value={formData.accountHolderName}
                     onChange={handleInputChange}
                     error={formErrors.accountHolderName}
+                    status={val}
                 />
 
                 <FormInput
@@ -62,6 +67,7 @@ function BankDetailsForm() {
                     value={formData.accountNumber}
                     onChange={handleInputChange}
                     error={formErrors.accountNumber}
+                    status={val}
                 />
 
                 <FormInput
@@ -70,6 +76,7 @@ function BankDetailsForm() {
                     value={formData.ifscCode}
                     onChange={handleInputChange}
                     error={formErrors.ifscCode}
+                    status={val}
                 />
 
                 <FormInput
@@ -78,6 +85,7 @@ function BankDetailsForm() {
                     value={formData.bankName}
                     onChange={handleInputChange}
                     error={formErrors.bankName}
+                    status={val}
                 />
 
                 <FormInput
@@ -86,6 +94,7 @@ function BankDetailsForm() {
                     value={formData.bankCity}
                     onChange={handleInputChange}
                     error={formErrors.bankCity}
+                    status={val}
                 />
 
                 <FormInput
@@ -94,6 +103,7 @@ function BankDetailsForm() {
                     value={formData.branchName}
                     onChange={handleInputChange}
                     error={formErrors.branchName}
+                    status={val}
                 />
 
                 <FormInput
@@ -102,6 +112,7 @@ function BankDetailsForm() {
                     value={formData.relationshipWithAccountHolder}
                     onChange={handleInputChange}
                     error={formErrors.relationshipWithAccountHolder}
+                    status={val}
                 />
 
                 <ConsentCheckbox

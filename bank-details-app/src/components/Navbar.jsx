@@ -7,34 +7,34 @@ import UserCircle from '../assets/UserCircle.svg'
 
 const Navbar = () => {
     return (
-        <div className="bg-white flex flex-col justify-end gap-2 h-16 navbar px-4 pt-4 border border-t-0 border-x-0 ">
-            <div className="flex justify-between flex-row items-start px-2 hidden md:flex">
-                <div className="text-xl w-48 font-bold text-[#262626] mt-1">
+        <div className="bg-white flex flex-col justify-end  gap-1 h-16 px-4 pt-4 border border-t-0 border-x-0 ">
+            <div className="flex justify-between flex-row items-start px-2 hidesmall">
+                <div className="text-xl w-48  font-bold text-[#262626] mt-1">
                     Logo
                 </div>
-                <div className="flex flex-row ml-[-50px] gap-20 justify-between items-start">
+                <div className=" middle_part  lg:gap-20">
                     <div className="text-xl l-0 px-2 font-bold text-[#262626] mt-1 w-fit border-b-4  border-[#3aa078]">
                         Home
                     </div>
-                    <div className="text-xl px-5 font-bold text-[#262626] mt-1 w-fit">
+                    <div className="middle_part_content">
                         Services
                     </div>
-                    <div className="text-xl px-5 font-bold text-[#262626] mt-1 w-fit">
+                    <div className="middle_part_content">
                         Blog
                     </div>
-                    <div className="text-xl px-5 font-bold text-[#262626] mt-1 w-fit">
+                    <div className="middle_part_content">
                         Offers
                     </div>
-                    <div className="flex flex-row gap-20 items-start">
-                        <div className="text-xl px-5 font-bold text-[#262626] mt-1 w-fit">
+    
+                    <div className="middle_part_content">
                             About Us
                         </div>
-                    </div>
+        
 
 
                 </div>
 
-                <div className="flex flex-row gap-6 justify-between items-start">
+                <div className=" right_part flex flex-row justify-between items-start lg:gap-6">
                     <img 
                     src={Magnifying}
                         id="MagnifyingGlass"

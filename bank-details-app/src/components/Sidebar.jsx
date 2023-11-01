@@ -33,7 +33,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
 
     return (
         <>
-            {
+          
+          {
                 isSmallScreen &&
                 <>
                     {isSidebarOpen ? (
@@ -41,7 +42,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
 
                             <button
                                 onClick={toggleSidebar}
-                                className="text-xl md:hidden fixed top-0 left-2 m-4"
+                                className="toggle_button  md:hidden"
                             >
                                 <img src={some} className="w-8" alt='some' />
                             </button>
@@ -51,7 +52,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                         <>
                             <button
                                 onClick={toggleSidebar}
-                                className="text-xl md:hidden fixed top-0 left-2 m-4"
+                                className="toggle_button md:hidden"
                             >
                                 <FaBars className="text-gray-700" />
                             </button>
@@ -59,28 +60,33 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                     }
                 </>
             }
+            
+            
 
 
 
-            {
+        {
                 (isSidebarOpen || !isSmallScreen) &&
 
-                <div className={`flex flex-row h-full h-[900px] min-w-fit border border-0  border-[#d3d3d3] ${!isSmallScreen ? 'border-r' : 'border-0 '} ${isSidebarOpen ? 'w-full' : 'w-1/6'}`}>
+                <div className={`Sidebar_container  ${!isSmallScreen ? 'border-r' : 'border-0 '} `}>
 
-                    <div className="flex flex-col gap-3 items-end mt-3 w-full">
+                    <div className="flex flex-col  items-end mt-3 w-full">
                         <>
 
                             {!isSmallScreen && <div className="self-start flex flex-row px-5 items-start w-full">
                                 <div className="flex flex-row gap-5 w-40 items-start">
+                                
                                     <div className="flex flex-col gap-5 w-8 items-start">
+                                    <button onClick={toggleSidebar}>
                                         <img src={some} className="w-8" alt='some' />
+                                        </button>
                                     </div>
                                 </div>
                             </div>}
 
-                            <NavLink to="dashboard" className={`flex flex-col hoverEffect w-full ${!isSmallScreen ? 'border-0' : 'border-0'}`}>
-                                <div className="flex flex-row justify-between px-10 h-12 items-center  rounded">
-                                    <div className="flex flex-row gap-5 items-start mr-20">
+                            <NavLink to="dashboard" className={` Sidebar_Container_Sub ${!isSmallScreen ? 'border-0' : 'border-0'}`}>
+                                <div className={` Sidebar_Container_Sub1  ${isSmallScreen?'border border-x-0  border-t-0':'border-0'}`}>
+                                    <div className="Sidebar_Container_Sub2">
                                         <img src={dashboard} className="self-end w-6" alt='some' />
                                         <div className="text-base">
                                             Dashboard
@@ -93,11 +99,11 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                                 </div>
                             </NavLink>
 
-                            <NavLink to="totm" className="flex flex-col hoverEffect w-full">
-                                <div className="flex flex-row justify-between px-10 h-12 items-center  rounded">
-                                    <div className="flex flex-row gap-5 items-start mr-20">
+                            <NavLink to="totm" className="Sidebar_Container_Sub">
+                                <div className={`Sidebar_Container_Sub1 ${isSmallScreen?'border border-x-0  border-t-0':'border-0'}`}>
+                                    <div className="Sidebar_Container_Sub2">
                                         <img src={totm} className="self-end w-6" alt='some' />
-                                        <div className="text-base">
+                                        <div className="text-base w-fit">
                                             TOTM NavLinks
                                         </div>
                                     </div>
@@ -108,9 +114,9 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                                 </div>
                             </NavLink>
 
-                            <NavLink to="view" className="flex flex-col hoverEffect w-full">
-                                <div className="flex flex-row justify-between px-10 h-12 items-center  rounded">
-                                    <div className="flex flex-row gap-5  items-start">
+                            <NavLink to="view" className="Sidebar_Container_Sub">
+                                <div className={`Sidebar_Container_Sub1 ${isSmallScreen?'border border-x-0  border-t-0':'border-0'}`}>
+                                    <div className="Sidebar_Container_Sub2">
                                         <img src={dailysummary} className="self-end w-6" alt='some' />
                                         <div className="text-base w-fit">
                                             Daily Summary
@@ -123,11 +129,11 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                                 </div>
                             </NavLink>
 
-                            <NavLink to="" className="flex flex-col hoverEffect w-full">
-                                <div className="flex flex-row justify-between px-10 h-12 items-center  rounded">
-                                    <div className="flex flex-row gap-5 items-start mr-20">
+                            <NavLink to="" className="Sidebar_Container_Sub">
+                                <div className={`Sidebar_Container_Sub1 ${isSmallScreen?'border border-x-0  border-t-0':'border-0'}`}>
+                                    <div className="Sidebar_Container_Sub2">
                                         <img src={bankdetails} className="self-end w-6" alt='some' />
-                                        <div className="text-base">
+                                        <div className="text-base w-fit">
                                             Bank Details
                                         </div>
                                     </div>

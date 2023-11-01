@@ -1,6 +1,6 @@
 import React from 'react'
 import BankDetailsForm from './BankDetailsForm'
-import MobileSidebar from './Sidebar'
+
 
 const BankDetails = () => {
     return (

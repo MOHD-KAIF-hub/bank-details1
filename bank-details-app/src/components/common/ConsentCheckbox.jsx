@@ -1,4 +1,5 @@
 import React from 'react';
+import './ConsentCheckbox.css'
 
 function ConsentCheckbox({ checked, onChange, error ,status}) {
     const today = new Date();
@@ -8,11 +9,12 @@ function ConsentCheckbox({ checked, onChange, error ,status}) {
     let arrayfor_mm=["JAN","FEB","MAR","APR","MAY","JUN","JULY","AUG","SEP","OCT","NOV","DEC"];
             var x=parseInt(mm);
     return (
+          <div className="flex flex-col">
         <div className="flex flex-col md:flex-row items-start justify-between mb-4">
             <label className="w-full md:w-1/2 mb-1 text-sm font-bold text-[#262626]">
                 CONSENT
             </label>
-            <div className="w-full md:w-1/2 border-[#d3d3d3] border rounded-md p-4 flex items-start space-x-2">
+            <div className={`w-full md:w-1/2 border-[#d3d3d3] border rounded-md p-4 flex items-start space-x-2 ${!status?'bg-[#E4F0EB]':'bg-white'}`}>
                 {status&&<input
                     type="checkbox"
                     checked={checked}
@@ -26,7 +28,8 @@ function ConsentCheckbox({ checked, onChange, error ,status}) {
                 </span>
                
             </div>
-            {error && <p className="text-red-500">{error}</p>}
+        </div>
+        {error && <p className="text-red-500 ml-auto">{error}</p>}
         </div>
     );
 }
